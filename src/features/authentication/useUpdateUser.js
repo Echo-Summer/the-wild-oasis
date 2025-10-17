@@ -15,7 +15,16 @@ export default function useUpdateUser() {
       })
     },
 
-    onError: (err) => toast.error(err.message),
+    onError: (err) => {
+      // 输出完整的错误信息到控制台
+      console.error('更新用户错误:', err)
+      console.error('错误详情:', {
+        message: err.message,
+        status: err.status,
+        details: err,
+      })
+      toast.error(err.message)
+    },
   })
 
   return { updateUser, isUpdating }
