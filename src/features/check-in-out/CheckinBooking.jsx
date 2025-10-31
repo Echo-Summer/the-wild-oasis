@@ -74,8 +74,8 @@ function CheckinBooking() {
   return (
     <>
       <Row type='horizontal'>
-        <Heading as='h1'>Check in booking #{bookingId}</Heading>
-        <ButtonText onClick={moveBack}>&larr; Back</ButtonText>
+        <Heading as='h1'>办理预定订单 #{bookingId}</Heading>
+        <ButtonText onClick={moveBack}>&larr; 返回</ButtonText>
       </Row>
       <BookingDataBox booking={booking} />
 
@@ -90,7 +90,7 @@ function CheckinBooking() {
             }}
             id='breakfast'
           >
-            Want to add breakfast for {formatCurrency(optionalBreakfastPrice)}?
+            需要添加价格为 {formatCurrency(optionalBreakfastPrice)} 的早餐吗?
           </Checkbox>
         </Box>
       )}
@@ -103,7 +103,7 @@ function CheckinBooking() {
           id='confirm'
           disabled={confirmPaid || isCheckingIn}
         >
-          I confirm that {guests.fullName} has paid the total amount of{' '}
+          我确认 {guests.fullName} 已经支付了订单总额{' '}
           {addBreakfast
             ? `${formatCurrency(
                 totalPrice + optionalBreakfastPrice
@@ -117,10 +117,10 @@ function CheckinBooking() {
       {/* 如果已经支付费用，确认是否check in */}
       <ButtonGroup>
         <Button onClick={handleCheckin} disabled={!confirmPaid || isCheckingIn}>
-          Check in booking #{bookingId}
+          办理入住 #{bookingId}
         </Button>
         <Button variation='secondary' onClick={moveBack}>
-          Back
+          返回
         </Button>
       </ButtonGroup>
     </>
